@@ -11,35 +11,37 @@ body {
     display: flex;
 }
 
-#complaint-type-list, #complaint-list {
+#complaint-type-list {
     list-style-type: none;
     padding: 0;
-    margin-right: 20px;
-    width: 200px;
+    width: 300px;
 }
 
-.complaint-type-item, .complaint-item {
+.complaint-type-item {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
     cursor: pointer;
+    position: relative;
 }
 
-.complaint-type-item:hover, .complaint-item:hover {
+.complaint-type-item:hover {
     background-color: #f0f0f0;
 }
 
-#complaint-details {
-    position: absolute;
+.complaint-details {
     border: 1px solid #ccc;
     background-color: #fff;
     padding: 10px;
     max-width: 300px;
     display: none; /* Initially hidden */
+    position: absolute;
+    left: 320px;
+    top: 0;
     z-index: 10;
 }
 
-#complaint-details img {
+.complaint-details img {
     max-width: 100%;
     height: auto;
 }
