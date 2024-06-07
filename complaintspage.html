@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Page</title>
+    <link rel="stylesheet" href="complaintspagestyle.css">
+</head>
+<body>
+    <div class="profile">
+        <h2>User Profile</h2>
+        <p id="user-name">Name: John Doe</p>
+        <p id="user-email">Email: john.doe@example.com</p>
+    </div>
+
+    <div class="complaints">
+        <h2>Complaint Types</h2>
+        <div class="complaints-container">
+            <ul id="complaint-type-list">
+                <li class="complaint-type-item" data-type="potholes">Potholes</li>
+                <li class="complaint-type-item" data-type="cracks">Cracks</li>
+                <li class="complaint-type-item" data-type="erosion">Erosion or Washouts</li>
+                <li class="complaint-type-item" data-type="faded-markings">Faded or Missing Road Markings</li>
+                <li class="complaint-type-item" data-type="blocked-drains">Blocked Drains or Culverts</li>
+                <li class="complaint-type-item" data-type="debris">Debris on Roadway</li>
+                <li class="complaint-type-item" data-type="damaged-signage">Damaged or Missing Signage</li>
+                <li class="complaint-type-item" data-type="flooding">Flooding or Water Accumulation</li>
+                <li class="complaint-type-item" data-type="street-light-issues">Street Light Issues</li>
+                <li class="complaint-type-item" data-type="sinkholes">Sinkholes</li>
+                <li class="complaint-type-item" data-type="road-kill">Road Kill or Dead Animals</li>
+                <li class="complaint-type-item" data-type="speed-bumps">Speed Bumps Damage</li>
+                <li class="complaint-type-item" data-type="sidewalk-damage">Sidewalk Damage</li>
+                <li class="complaint-type-item" data-type="bridge-damage">Bridge or Overpass Damage</li>
+                <li class="complaint-type-item" data-type="others">Others</li>
+            </ul>
+            <div id="complaints-display">
+                <ul id="complaint-list"></ul>
+            </div>
+        </div>
+        <div id="complaint-details" style="display: none;"></div>
+    </div>
+
+    <script src="complaintsscript.js"></script>
+</body>
+</html>

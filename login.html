@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form" id="login-form">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                       <b><label for="login-email">Mobile Number</label></b>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="login1Script.js"></script>
+</body>
+</html>
