@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const complaintTypeItems = document.querySelectorAll('.complaint-type-item');
 
     complaintTypeItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
+        item.addEventListener('click', () => {
             const type = item.getAttribute('data-type');
             const complaint = complaintTypes[type];
             let complaintDetails = item.querySelector('.complaint-details');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Toggle the display of the clicked item
-            if (complaintDetails.style.display === 'button') {
+            if (complaintDetails.style.display === 'block') {
                 complaintDetails.style.display = 'none';
             } else {
                 complaintDetails.innerHTML = `
