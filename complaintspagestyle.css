@@ -43,16 +43,18 @@ body {
     display: none;
     position: absolute;
     left: 320px;
-    top: 0;
+    top: 10px;
     z-index: 10;
     border-radius: 10px;
     overflow: auto;
     box-sizing: border-box;
+    flex-direction: column;
 }
 
 .complaint-details img {
-    max-width: 100%;
-    height: auto;
+    max-width: 80%;
+    height: 150px;
+    margin-bottom: 10px;
 }
 
 .raise-complaint {
@@ -67,7 +69,6 @@ body {
     bottom: auto;
     right: auto;
 }
-
 
 .raise-complaint:hover {
     background-color: #45a049;
