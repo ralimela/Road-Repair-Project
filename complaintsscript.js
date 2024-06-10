@@ -41,23 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sinkholes': {
             description: 'Sinkholes forming on the road. Large, deep depressions or holes that suddenly appear in the road due to the collapse of the underlying ground.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Sinkholes-1.webp', 'Sinkholes-2.jpeg']
         },
         'road-kill': {
             description: 'Dead animals on the road causing hazards. Animals that have been struck by vehicles and remain on the road, causing potential hazards.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Animals-1.jpg']
         },
         'speed-bumps': {
             description: 'Damage to speed bumps. Speed bumps that are cracked, broken, or uneven, affecting their effectiveness.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['SpeedBrakers-1.webp', 'SpeedBrakers-2.webp']
         },
         'sidewalk-damage': {
             description: 'Damage to sidewalks. Cracked, broken, or uneven sidewalks that pose tripping hazards and accessibility issues.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['SidewalkDamage.jpeg', 'SidewalkDamage.jpg']
         },
         'bridge-damage': {
             description: 'Damage to bridges or overpasses. Structural damage to bridges or overpasses, such as cracks, spalling, or exposed rebar.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['BridgeDamage-1.jpg', 'BridgeDamage-2.jpg']
         },
         'others': {
             description: 'Other issues not listed. Provide a brief description.',
