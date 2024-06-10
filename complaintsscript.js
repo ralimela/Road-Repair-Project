@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('user-mobile').innerText = `Mobile Number: ${mobileNumber}`;
 
     const complaintTypes = {
-        'potholes': { description: 'Road surface is damaged with potholes.', image: 'potholes.jpg' },
+        'potholes': { description: 'Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with pothole.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.Road surface is damaged with potholes.', image: 'image.jpg'},
         'cracks': { description: 'Cracks appearing on the road surface.', image: 'cracks.jpg' },
         'erosion': { description: 'Erosion or washouts affecting the road.', image: 'erosion.jpg' },
         'faded-markings': { description: 'Road markings are faded or missing.', image: 'faded-markings.jpg' },
@@ -23,12 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const complaintTypeItems = document.querySelectorAll('.complaint-type-item');
 
     complaintTypeItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Hide all other complaint details
-            document.querySelectorAll('.complaint-details').forEach(detail => {
-                detail.style.display = 'none';
-            });
-
+        item.addEventListener('mouseenter', () => {
             const type = item.getAttribute('data-type');
             const complaint = complaintTypes[type];
             let complaintDetails = item.querySelector('.complaint-details');
@@ -44,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <button class="raise-complaint">Raise Complaint</button>
             `;
             complaintDetails.style.display = 'block';
+        });
+
+        item.addEventListener('mouseleave', () => {
+            const complaintDetails = item.querySelector('.complaint-details');
+            if (complaintDetails) {
+                complaintDetails.style.display = 'none';
+            }
         });
     });
 });
