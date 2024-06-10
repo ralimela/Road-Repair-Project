@@ -9,35 +9,35 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'cracks': {
             description: 'Cracks appearing on the road surface. Cracks in the road surface can appear as long, narrow fissures caused by ageing, temperature changes, and traffic stress.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['cracks1.jpeg', 'cracks2.jpeg']
         },
         'erosion': {
             description: 'Erosion or washouts affecting the road. Erosion or washouts occur when water flow removes the soil or base material supporting the road, leading to surface collapse.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Erosion1.jpeg', 'Erosion2.jpeg']
         },
         'faded-markings': {
             description: 'Road markings are faded or missing. Road markings like lines, crosswalks, and arrows that have worn away or are no longer visible.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Faded1.jpeg', 'Faded2.jpeg']
         },
         'blocked-drains': {
             description: 'Blocked drains or culverts causing water buildup. Drains or culverts clogged with debris, preventing proper water drainage and causing water buildup on the road.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Drains1.jpeg', 'Drains2.jpeg']
         },
         'debris': {
             description: 'Debris on the roadway obstructing traffic. Objects such as tree branches, rocks, trash, or other materials that obstruct the road.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Debris1.jpeg', 'Debris2.jpeg']
         },
         'damaged-signage': {
             description: 'Damaged or missing road signage. Traffic signs that are broken, defaced, or missing, leading to confusion and safety issues.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['Roadsign1.jpeg', 'Roadsign2.jpeg']
         },
         'flooding': {
             description: 'Flooding or water accumulation on the road. Areas of the road where water pools or floods due to inadequate drainage.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['flood1.jpeg', 'flood2.jpeg']
         },
         'street-light-issues': {
             description: 'Issues with street lights. Non-functioning, flickering, or damaged street lights that reduce visibility and safety at night.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['lights1.jpeg', 'lights2.jpeg']
         },
         'sinkholes': {
             description: 'Sinkholes forming on the road. Large, deep depressions or holes that suddenly appear in the road due to the collapse of the underlying ground.',
