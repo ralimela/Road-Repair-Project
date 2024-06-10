@@ -1,10 +1,14 @@
 body {
+    background-image: url(img.jpg);
+    background-size: cover;
+    background-position: center;
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .profile, .complaints {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .complaints-container {
@@ -20,25 +24,30 @@ body {
 .complaint-type-item {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #b42508;
     cursor: pointer;
     position: relative;
 }
 
 .complaint-type-item:hover {
-    background-color: #f0f0f0;
+    background-color: #c29b9f;
 }
 
 .complaint-details {
-    border: 1px solid #ccc;
-    background-color: #fff;
+    border: 1.5px solid #ca7178;
+    background-color: #fae0a2;
     padding: 10px;
-    max-width: 300px;
-    display: none; /* Initially hidden */
+    max-width: 800px;
+    width: max-content;
+    height: auto;
+    display: none;
     position: absolute;
     left: 320px;
     top: 0;
     z-index: 10;
+    border-radius: 10px;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
 .complaint-details img {
@@ -51,9 +60,14 @@ body {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
-    border: none;
+    border-color: #1a0e0c;
+    border-radius: 5px;
     cursor: pointer;
+    position: relative;
+    bottom: auto;
+    right: auto;
 }
+
 
 .raise-complaint:hover {
     background-color: #45a049;
