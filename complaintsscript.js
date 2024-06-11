@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Other issues not listed. Provide a brief description.',
             images: ['others.jpeg']
         }
-
     };
 
     const complaintTypeItems = document.querySelectorAll('.complaint-type-item');
@@ -104,6 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 complaintDetails.style.display = 'block';
             }
+
+            // Close profile details
+            profileDetails.style.display = 'none';
         });
     });
 
@@ -113,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         allDetails.forEach(detail => {
             detail.style.display = 'none';
         });
+        profileDetails.style.display = 'none';
     });
 
     // Profile click event
@@ -124,6 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     profile.addEventListener('click', (event) => {
         event.stopPropagation(); // Prevent event from bubbling to the document
+        const allDetails = document.querySelectorAll('.complaint-details');
+        allDetails.forEach(detail => {
+            detail.style.display = 'none';
+        });
         if (profileDetails.style.display === 'block') {
             profileDetails.style.display = 'none';
         } else {
@@ -140,8 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close profile details when clicking outside
     document.addEventListener('click', () => {
-        if (profileDetails.style.display === 'block') {
-            profileDetails.style.display = 'none';
-        }
+        const allDetails = document.querySelectorAll('.complaint-details');
+        allDetails.forEach(detail => {
+            detail.style.display = 'none';
+        });
+        profileDetails.style.display = 'none';
     });
 });
