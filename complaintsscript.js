@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mobileNumber = localStorage.getItem('mobileNumber');
-    document.getElementById('user-mobile').innerText = `Mobile Number: ${mobileNumber}`;
+    const userMobileElement = document.getElementById('user-mobile');
+
+    if (userMobileElement) {
+        userMobileElement.innerText = `Mobile Number: ${mobileNumber}`;
+    }
 
     const complaintTypes = {
         'potholes': {
@@ -41,34 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sinkholes': {
             description: 'Sinkholes forming on the road. Large, deep depressions or holes that suddenly appear in the road due to the collapse of the underlying ground.',
-            images: ['Sinkholes-1.webp', 'Sinkholes-2.jpeg']
+            images: ['sinkholes-1.webp', 'sinkholes-2.jpeg']
         },
         'road-kill': {
             description: 'Dead animals on the road causing hazards. Animals that have been struck by vehicles and remain on the road, causing potential hazards.',
-            images: ['Animals-1.jpg']
+            images: ['animals-1.jpg']
         },
         'speed-bumps': {
             description: 'Damage to speed bumps. Speed bumps that are cracked, broken, or uneven, affecting their effectiveness.',
-            images: ['SpeedBrakers-1.webp', 'SpeedBrakers-2.webp']
+            images: ['speedbrakers-1.webp', 'speedbrakers-2.webp']
         },
         'sidewalk-damage': {
             description: 'Damage to sidewalks. Cracked, broken, or uneven sidewalks that pose tripping hazards and accessibility issues.',
-            images: ['SidewalkDamage.jpeg', 'SidewalkDamage.jpg']
+            images: ['sidewalkdamage.jpeg', 'sidewalkdamage.jpg']
         },
         'bridge-damage': {
             description: 'Damage to bridges or overpasses. Structural damage to bridges or overpasses, such as cracks, spalling, or exposed rebar.',
-            images: ['BridgeDamage-1.jpg', 'BridgeDamage-2.jpg']
+            images: ['Bridgedamage-1.jpg', 'bridgedamage-2.jpg']
         },
         'others': {
             description: 'Other issues not listed. Provide a brief description.',
-            images: ['potholes.jpeg', 'potholes1.jpeg']
+            images: ['others.jpeg']
         }
+
     };
 
     const complaintTypeItems = document.querySelectorAll('.complaint-type-item');
 
     complaintTypeItems.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent event from bubbling to the document
             const type = item.getAttribute('data-type');
             const complaint = complaintTypes[type];
             let complaintDetails = item.querySelector('.complaint-details');
@@ -99,5 +105,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 complaintDetails.style.display = 'block';
             }
         });
+    });
+
+    // Close complaint details when clicking outside
+    document.addEventListener('click', () => {
+        const allDetails = document.querySelectorAll('.complaint-details');
+        allDetails.forEach(detail => {
+            detail.style.display = 'none';
+        });
+    });
+
+    // Profile click event
+    const profile = document.getElementById('profile');
+    const profileDetails = document.getElementById('profile-details');
+
+    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
+
+    profile.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent event from bubbling to the document
+        if (profileDetails.style.display === 'block') {
+            profileDetails.style.display = 'none';
+        } else {
+            // Display user details
+            profileDetails.innerHTML = `
+                <h3>User Details</h3>
+                <p>Name: ${username}</p>
+                <p>Email: ${email}</p>
+                <p>Mobile Number: ${mobileNumber}</p>
+            `;
+            profileDetails.style.display = 'block';
+        }
+    });
+
+    // Close profile details when clicking outside
+    document.addEventListener('click', () => {
+        if (profileDetails.style.display === 'block') {
+            profileDetails.style.display = 'none';
+        }
     });
 });
