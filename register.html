@@ -1,67 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Page</title>
-    <link rel="stylesheet" href="registerstyles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="form-container">
-        <div class="form" id="login-form">
-          <u><h2>Registration Details</h2></u>
-          <form id="registrationForm">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Page</title>
+<link rel="stylesheet" href="registerstyles.css">
+</head>
+<body>
+  
+  <div class="container">
+    <div class="form-container">
+      <div class="form" id="login-form">
+        <u><h2>Registration Details</h2></u>
+        <form id="registrationForm">
+          
+          <div class="input-group">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" pattern="[A-Za-z\s]+" title="Enter your first name" required>
+          </div>
+          <div class="input-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" pattern="[A-Za-z\s]+" title="Enter your surname" required>
+          </div>
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" pattern="[A-Za-z0-9_\s]+" title="Enter your username" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="mobileNumber">Mobile Number</label>
             <div class="input-group">
-              <label for="firstname">First Name</label>
-              <input
-                type="text"
-                id="firstname"
-                name="firstname"
-                pattern="[A-Za-z\s]+"
-                title="Enter your first name"
-                required
-              />
+              <select id="countryCode" name="countryCode">
+                <option value="+91">India (+91)</option>
+              </select>
+              <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required>
             </div>
-            <div class="input-group">
-              <label for="lastname">Last Name</label>
-              <input
-                type="text"
-                id="lastname"
-                name="lastname"
-                pattern="[A-Za-z\s]+"
-                title="Enter your surname"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <label for="mobileNumber">Mobile Number</label>
-              <div class="input-group">
-                <select id="countryCode" name="countryCode">
-                  <option value="+91">India (+91)</option>
-                </select>
-                <input
-                  type="tel"
-                  id="mobileNumber"
-                  name="mobileNumber"
-                  pattern="[0-9]{10}"
-                  required
-                />
-              </div>
-              <small
-                >Format: 10 digits without spaces or special characters</small
-              >
-            </div>
-            <button type="submit" id="registerButton">Generate OTP</button>
-            <p>
-              Already have an account?
-              <a href="#" onclick="showLogin()">Login</a>
-            </p>
-          </form>
-        </div>
+            <small>Format: 10 digits without spaces or special characters</small>
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" title="Enter your email" required>
+          </div>
+          <button type="submit" id="registerButton">Generate OTP</button>
+          <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </form>
       </div>
     </div>
+  </div>
 
-    <script src="registerscript.js"></script>
-  </body>
+  <script src="registerscript.js"></script>
+</body>
 </html>
