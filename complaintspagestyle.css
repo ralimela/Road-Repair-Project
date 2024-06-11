@@ -1,5 +1,5 @@
 body {
-    background-image: url(img.jpg);
+    background-image: url(cssimage.jpeg);
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
@@ -7,35 +7,84 @@ body {
     padding: 0;
 }
 
-.profile, .complaints {
-    margin-bottom: 40px;
+.profile {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    background-color: #7175da; /* Add a background color for better readability */
+    padding: 3px; /* Adjust padding */
+    border: 2px solid #c9a8a1;
+    border-radius: 50%;
+    width: 80px; /* Adjust width */
+    height: 80px; /* Adjust height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden; /* Clip the image to the circle */
+}
+
+.profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the entire circle */
+    border-radius: 50%;
+}
+
+
+
+.profile-details {
+    position: absolute;
+    top: 100px; /* Adjust as needed */
+    right: 80px; /* Adjust as needed */
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #b42508;
+    border-radius: 10px;
+    display: none;
+    z-index: 20;
+}
+
+.profile h2, .profile p {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 15px; 
+}
+
+.complaints {
+    
+    margin-bottom: 80px;
 }
 
 .complaints-container {
-    display: flex;
+    margin-bottom: 90px;
 }
 
 #complaint-type-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: initial;
+    padding: 10;
     width: 300px;
 }
 
 .complaint-type-item {
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #b42508;
+    border: 2px solid #b42508;
     cursor: pointer;
     position: relative;
 }
 
 .complaint-type-item:hover {
-    background-color: #c29b9f;
+    background-color: #b8d8e2;
 }
 
 .complaint-details {
-    border: 1.5px solid #ca7178;
-    background-color: #fae0a2;
+    border: 2px solid #b42508;
+    background-color: #e6dfce;
     padding: 10px;
     max-width: 800px;
     width: max-content;
@@ -55,13 +104,12 @@ body {
     max-width: 80%;
     height: 150px;
     margin: 10px;
-
 }
 
 .raise-complaint {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #117d15;
     color: white;
     border-color: #1a0e0c;
     border-radius: 5px;
