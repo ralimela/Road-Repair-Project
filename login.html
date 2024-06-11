@@ -13,7 +13,11 @@
                 <h2>Login</h2>
                 <form id="loginForm">
                     <div class="input-group">
-                       <b><label for="login-email">Mobile Number</label></b>
+                        <b><label for="login-username">Username</label></b>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <b><label for="login-mobileNumber">Mobile Number</label></b>
                         <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required>
                     </div>
                     <button type="submit">Login</button>
@@ -22,6 +26,6 @@
             </div>
         </div>
     </div>
-    <script src="login1Script.js"></script>
+    <script src="loginScript.js"></script>
 </body>
 </html>
