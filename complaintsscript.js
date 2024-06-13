@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mobileNumber = localStorage.getItem('mobileNumber');
-    const userMobileElement = document.getElementById('user-mobile');
+    const profile = document.getElementById('profile');
+    const profileDetails = document.getElementById('profile-details');
+    const modal = document.getElementById('complaint-modal');
+    const modalClose = document.querySelector('.close');
+    const complaintForm = document.getElementById('complaint-form');
+    const modalTitle = document.querySelector('.modal-content h3');
+    const complaintLocation = document.getElementById('complaintLocation');
 
-    if (userMobileElement) {
-        userMobileElement.innerText = `Mobile Number: ${mobileNumber}`;
-    }
+    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
+    const mobileNumber = localStorage.getItem('mobileNumber');
 
     const complaintTypes = {
         'potholes': {
@@ -69,17 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    
     const complaintTypeItems = document.querySelectorAll('.complaint-type-item');
 
     complaintTypeItems.forEach(item => {
         item.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent event from bubbling to the document
+            event.stopPropagation();
             const type = item.getAttribute('data-type');
             const complaint = complaintTypes[type];
             let complaintDetails = item.querySelector('.complaint-details');
             const allDetails = document.querySelectorAll('.complaint-details');
 
-            // Hide all other details
             allDetails.forEach(detail => {
                 if (detail !== complaintDetails) {
                     detail.style.display = 'none';
@@ -92,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.appendChild(complaintDetails);
             }
 
-            // Toggle the display of the clicked item
             if (complaintDetails.style.display === 'block') {
                 complaintDetails.style.display = 'none';
             } else {
@@ -104,12 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 complaintDetails.style.display = 'block';
             }
 
-            // Close profile details
             profileDetails.style.display = 'none';
+
+            const raiseComplaintButton = complaintDetails.querySelector('.raise-complaint');
+            raiseComplaintButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalTitle.innerText = `What is your complaint on ${type}...?`;
+                modal.style.display = 'block';
+                initMap();
+            });
         });
     });
 
-    // Close complaint details when clicking outside
     document.addEventListener('click', () => {
         const allDetails = document.querySelectorAll('.complaint-details');
         allDetails.forEach(detail => {
@@ -118,15 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
         profileDetails.style.display = 'none';
     });
 
-    // Profile click event
-    const profile = document.getElementById('profile');
-    const profileDetails = document.getElementById('profile-details');
-
-    const username = localStorage.getItem('username');
-    const email = localStorage.getItem('email');
-
     profile.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent event from bubbling to the document
+        event.stopPropagation();
         const allDetails = document.querySelectorAll('.complaint-details');
         allDetails.forEach(detail => {
             detail.style.display = 'none';
@@ -134,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (profileDetails.style.display === 'block') {
             profileDetails.style.display = 'none';
         } else {
-            // Display user details
             profileDetails.innerHTML = `
                 <h3>User Details</h3>
                 <p>Name: ${username}</p>
@@ -145,12 +147,48 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close profile details when clicking outside
-    document.addEventListener('click', () => {
-        const allDetails = document.querySelectorAll('.complaint-details');
-        allDetails.forEach(detail => {
-            detail.style.display = 'none';
-        });
-        profileDetails.style.display = 'none';
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
     });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    complaintForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Complaint submitted!');
+        modal.style.display = 'none';
+        complaintForm.reset();
+    });
+
+    // Initialize and add the map
+    window.initMap = function() {
+        const map = L.map('map').setView([17.4065, 78.4772], 25);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        
+
+        let marker;
+
+        map.on('click', (e) => {
+            const latlng = e.latlng;
+            if (marker) {
+                marker.setLatLng(latlng);
+            } else {
+                marker = L.marker(latlng, { draggable: true }).addTo(map);
+            }
+            complaintLocation.value = `${latlng.lat}, ${latlng.lng}`;
+        });
+
+        map.on('geosearch/marker/dragend', (e) => {
+            const latlng = e.location;
+            complaintLocation.value = `${latlng.lat}, ${latlng.lng}`;
+        });
+    };
 });
