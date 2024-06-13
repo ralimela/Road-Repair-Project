@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complaints Page</title>
     <link rel="stylesheet" href="complaintspagestyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+
 </head>
 <body>
     <div class="profile" id="profile">
@@ -37,6 +43,31 @@
         </div>
     </div>
 
+    <div id="complaint-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>What is your complaint on ....?</h3>
+            <form id="complaint-form">
+                <label for="complaint-description"><b><i>Description:</i></b></label>
+                <textarea id="complaint-description" name="description" rows="4" required></textarea>
+                <br>
+                <label for="complaintLocation"><b><i>Location Coordinates:</i></b></label>
+                <input type="text" id="complaintLocation" name="location" readonly required><br>
+                <div id="map"></div>
+                <br>
+                <label for="complaint-image"><b><i>Upload Image:</i></b></label>
+                <input type="file" id="complaint-image" name="image" required>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geosearch/dist/geosearch.umd.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="complaintsscript.js"></script>
+
+
 </body>
 </html>
